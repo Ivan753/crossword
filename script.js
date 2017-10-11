@@ -1,36 +1,31 @@
 //start create blocks
 function start(){
-	
-var margint=0; //хранят сммарный отступ позиционных элементов
+d1 = 0;
+d2 = 0;
 
 for(i = 0; i < questions_answers.length; i++){
 	
 	var div = document.createElement('div');
 	div.id = 'big_field'+i;
 	
-	all.innerHTML+="<div id = 'for_work"+i+"' style = 'width:100%;  margin-top:"+(30*questions_answers[i][3] - margint)+"px;'></div>";
+	all.innerHTML+="<div id = 'for_work"+i+"' style = 'position:absolute; width:100%;  margin-top:"+30*questions_answers[i][3]+"px;'></div>";
 	
 	if(questions_answers[i][1] == "goriz"){
 		div.className = 'big_fields_g';
 		div.setAttribute('style', 'margin-left:'+(30*questions_answers[i][2])+'px; width:'+((questions_answers[i].length - 5)*30)+'px;');
-		//div.setAttribute('onclick', 'activ('+i+')');
-		margint = (30*questions_answers[i][3])+30 + 2;
 		
 	}else{
 		div.className = 'big_fields_v';
 		div.setAttribute('style', 'margin-left:'+(30*questions_answers[i][2])+'px;');
-		//div.setAttribute('onclick', 'activ('+i+')');
-		margint = (30*questions_answers[i][3])+(questions_answers[i].length - 5)*30 +2;
 		
 	}
 	
+	if(questions_answers[i][1]=='goriz'){ d1=15; d2=-5; }else{ d1=-5; d2=22;}
 
-	
-	
 	for(j = 0; j < questions_answers[i].length - 5; j++){
 		
 		if(j == 0){  
-		div.innerHTML+='<div class="pointer" style="margin-left:'+questions_answers[i][2]*30+'; margin-top:'+questions_answers[i][3]*30+';">'+questions_answers[i][0]+'</div>'; 
+		div.innerHTML+='<div class="pointer" style="margin-left:'+(-d1)+'px; margin-top:'+(-d2)+'px;">'+questions_answers[i][0]+'</div>'; 
 		}
 		
 		if(questions_answers[i][1] == "goriz"){
@@ -115,7 +110,7 @@ function true_answer(n){
 	$('#button'+n).hide(1500);
 }
 
-
+//function for move blocks
 function cbur(n){
 
   var ie = 0;
@@ -185,5 +180,5 @@ function cbur(n){
 
 }
 
-
+//begin
 start();
