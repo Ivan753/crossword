@@ -5,26 +5,45 @@
 <head>
 <title>Кроссворд</title>
 <meta charset="UTF-8" />
+<script src="jquery-2.1.4.js"></script>
 <style>
 #baz{
-width:660px; /*30*21*/
+width:760px; /*30*21*/
 height:auto;
 margin:30px auto;
-border: 1px solid #000;
 padding-bottom:30px;
 }
+.pointer{
+position:absolute;
+paddinr:1px;
+font-family: Comic Sans MS;
+color:#3b5;
+}
+#panel{
+float: left;
+width:100px;
+height: auto;
+padding-top:30px;
+}
+
+#all{
+position:relative;
+float:left;
+}
+
 
 .big_fields_g{
 
 height: 30px; 
 border: 1px solid #888;
+transition: border 1s;
 }
 
 .big_fields_v{
-z-index:1000;
 width: 30px; 
 height: auto; 
 border: 1px solid #888;
+transition: border 1s;
 }
 
 .litle_fields_v{
@@ -42,8 +61,70 @@ height:30px;
 .letter{
 text-align: center;
 font-size: 18px;
-font-family: Arial;
+font-family: Comic Sans MS;
 display:none;
+}
+
+.buttons{
+width:90px;
+margin: 10px auto;
+padding:3px;
+border-radius:7px;
+color:#fff;
+background-color:#79f;
+text-align:center;
+font-family: Comic Sans MS;
+cursor: pointer;
+box-shadow: 0px 5px 15px #666;
+transition: background-color 0.5s, box-shadow 0.5s;
+}
+.buttons:hover{
+background-color:#57f;
+}
+.buttons:active,focus{
+box-shadow: 0px 0px 0px #fff;
+}
+
+.questions{
+position: absolute;
+width:500px;
+height:auto;
+background-color:rgba(255, 255, 235, 0.95);
+border-radius:10px;
+padding:10px;
+margin-left:110px;
+margin-top: 20px;
+color:#555;
+font-size:18px;
+font-family:Comic Sans MS;
+box-shadow: 0px 5px 15px #666;
+cursor: move;
+cursor: -webkit-grab;
+z-index:1;
+display:none;
+}
+
+.all_buttons_for_question{
+margin:10px 0;
+}
+
+.buttons_for_question_1{
+cursor:pointer;
+float:left;
+padding:5px;
+border-radius:5px;
+background-color:#7f9;
+margin:0 5px;
+transition: background-color 1s;
+}
+.buttons_for_question_1:hover{
+background-color:#6e8;
+}
+.buttons_for_question_2{
+cursor:pointer;
+float:left;
+padding:5px;
+margin:0 5px;
 }
 </style>
 </head>
@@ -52,14 +133,14 @@ display:none;
 
 <div id="baz">
 
-<div id="panel">
+	<div id="panel">
+	<div style="clear:both"> </div>
+	</div>
 
-</div>
+	<div id="all">
 
-<div id="all">
-
-</div>
-
+	</div>
+<div style="clear:both"> </div>
 </div>
 
 <script src="data.js"></script>
